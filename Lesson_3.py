@@ -1,6 +1,3 @@
-
-
-
 import os
 import sys
 import psutil
@@ -36,7 +33,7 @@ if answer.lower() == 'y':
 			print('Python: ', sys.version)
 			print('Число ядер проц-ра: ' + str(psutil.cpu_count()))
 			print('Частота процессора: ' + str(psutil.cpu_freq()))
-			print('Загрузка процессора: ' + str(psutil.cpu_percent())+ '%\n')
+			print('Загрузка процессора: ' + str(psutil.cpu_percent()) + '%\n')
 
 		elif choise == '3':
 			os.startfile(r'C:\Windows\System32\cmd.exe')
