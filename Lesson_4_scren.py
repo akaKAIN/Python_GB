@@ -1,7 +1,7 @@
 import turtle
 import random
 
-
+turtle.speed(0)
 
 def coondinate(x, y):
     turtle.penup()
