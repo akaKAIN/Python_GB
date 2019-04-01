@@ -49,21 +49,28 @@ tower = [[1]]
 i = 1
 last_room = 1
 x = 1
-# Создаем список состоящий из списков блоков с комнатами
+
+# Построение БАШНИ!
 while last_room < room:
     x += 1
     block_of_rooms = []         # Создаем каждый раз пустой блок (x) для заполнения
-    while last_room < x ** 2:
+    turn = 0                    # Создаем нумератор комнат для блока, чтоб их было не более х ** 2
+    while turn < x ** 2:
+        turn += 1
         last_room += 1
         block_of_rooms.append(last_room)
     tower.append(block_of_rooms)
-print(len(tower))
+for block in tower:
+    if room in block:
+        print(block)
+
+
+# Вывод башни для просмотра корректности заполнения
+for floor in tower:
+    print(floor)
 
 
 
+# Сделать алгоритм расчета этажа
 
-
-# TODO: Создаем новый блок-комнат. Начало с последней комнаты предыдущего блока
-
-# TODO: Добавляем блок-комнат в общий список
-
+# Сделать алгоритм расчета комнаты
