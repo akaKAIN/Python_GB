@@ -45,18 +45,25 @@ room = int(input('Введите номер комнаты: '))
 # n - количество комнат в блоке
 # last_room - последняя комната в блоке
 # block_of_rooms - список комнат находящихся в блоке. Кол-во комнат в блоке х, = х ** 2
-
-
+tower = [[1]]
+i = 1
+last_room = 1
+x = 1
 # Создаем список состоящий из списков блоков с комнатами
 while last_room < room:
-    #
-    n = 1
-    block_of_rooms = []
-    last_room = 0
-    for i in (1, n):
+    x += 1
+    block_of_rooms = []         # Создаем каждый раз пустой блок (x) для заполнения
+    while last_room < x ** 2:
         last_room += 1
-        n += 1
         block_of_rooms.append(last_room)
+    tower.append(block_of_rooms)
+print(len(tower))
 
 
-print(block_of_rooms5)
+
+
+
+# TODO: Создаем новый блок-комнат. Начало с последней комнаты предыдущего блока
+
+# TODO: Добавляем блок-комнат в общий список
+
