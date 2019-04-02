@@ -12,20 +12,19 @@
 
 
 
+player = dict(name='', helth=120, damage=350)
+enemy = dict(name='Granite sience', helth=1000, damage=50)
+player['name'] = input('Enter your name, warrior: ')
+
+def attack(person1, person2):
+    person2['helth'] -= person1['damage']
+    print('{}, нанес {} урона.\n\tYровень здоровья {} упал до {}.'\
+          .format(person1['name'], person1['damage'], person2['name'], person2['helth'] ))
+    if person2['helth'] < 0:
+        print('{} повержен!!!!\n Слава победителю - '.format(person2['name'], person1['name']))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+attack(player, enemy)
 
 
 
@@ -42,3 +41,18 @@
 # после чего происходит запуск игровой сессии, где сущностям поочередно наносится урон,
 # пока у одного из них health не станет меньше или равен 0.
 # После чего на экран должно быть выведено имя победителя, и количество оставшихся единиц здоровья.
+
+
+# player = dict(name='Kain', helth=120, damage=350)
+# enemy = dict(name='Granite sience', helth=1000, damage=50)
+# #player['name'] = input('Enter your name, warrior: ')
+#
+# def attack(person1, person2):
+#     person2['helth'] -= person1['damage']
+#     print('{}, нанес {} урона.\n\tYровень здоровья {} упал до {}.'\
+#           .format(person1['name'], person1['damage'], person2['name'], person2['helth'] ))
+#     if person2['helth'] < 0:
+#         print('{} повержен!!!!\n Слава победителю - '.format(person2['name'], person1['name']))
+#
+# attack(player, enemy)
+
