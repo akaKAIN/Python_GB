@@ -12,19 +12,19 @@
 
 
 
-# player = dict(name='', helth=120, damage=350)
-# enemy = dict(name='Granite sience', helth=1000, damage=50)
-# player['name'] = input('Enter your name, warrior: ')
-#
-# def attack(person1, person2):
-#     person2['helth'] -= person1['damage']
-#     print('{}, нанес {} урона.\n\tYровень здоровья {} упал до {}.'\
-#           .format(person1['name'], person1['damage'], person2['name'], person2['helth'] ))
-#     if person2['helth'] < 0:
-#         print('{} повержен!!!!\n Слава победителю - '.format(person2['name'], person1['name']))
-#
-#
-# attack(player, enemy)
+player = dict(name='', helth=120, damage=350)
+enemy = dict(name='Granite sience', helth=1000, damage=50)
+player['name'] = input('Enter your name, warrior: ')
+
+def attack(person1, person2):
+    person2['helth'] -= person1['damage']
+    print('{}, нанес {} урона.\n\tYровень здоровья {} упал до {}.'\
+          .format(person1['name'], person1['damage'], person2['name'], person2['helth'] ))
+    if person2['helth'] < 0:
+        print('{} повержен!!!!\n Слава победителю - '.format(person2['name'], person1['name']))
+
+
+attack(player, enemy)
 
 
 
@@ -43,24 +43,49 @@
 # После чего на экран должно быть выведено имя победителя, и количество оставшихся единиц здоровья.
 
 import random
+import os
+os.chdir('/home/kain/Git/Python_GB/HW_03/')
 
-player = dict(name='Kain', helth=150, damage=60, armor=1.2, motivation=5.0)
-enemy = dict(name='-Гранит науки-', helth=1000, damage=30, armor=1.2, motivation=1.0)
-#player['name'] = input('Enter your name, warrior: ')
+# Функция открывает файл по заданному адресу
+# и заполняет из него переданный словарь.
+# Возвращает словарь
+def character_loading(dict, adress_name_file):
+    with open(adress_name_file, encoding='utf-8') as character_file:
+        for line in character_file:
+            key, value = line.split()
+            try:                                        # обход ошибки присвоения значения float строковому значению
+                dict[key] = float(value)                # в нашем случае - это name игрока
+            except ValueError:
+                dict[key] = value
+    return dict
 
+# Функция расчитывает чистый урон за вычетом параметров брони обороняющегося
+# и с прибавкой мотивации атакующего.
 def armor_check(person1, person2):
     clear_damage = person1['damage'] * person1['motivation']/ person2['armor']
     return int(clear_damage)
 
+
+# Функция производит "нанесение урона" и вывод имени победителя, в случае смерти
 def attack(person1, person2):
     person2['helth'] -= armor_check(person1, person2)
     print('{}, нанес {} урона.\n\tYровень здоровья {} упал до {}.\n\n'\
           .format(person1['name'], armor_check(person1, person2), person2['name'], person2['helth'] ))
     if person2['helth'] <= 0:
-        print('{} повержен!!!!\n Слава победителю - '.format(person2['name'], person1['name']))
+        print('{} повержен!!!!\n Слава победителю - {}'.format(person2['name'], person1['name']))
 
 
-while (player['helth'] or enemy['helth']) > 0:
+# Создаем пустые словари, чтобы было куда записывать данные с файлов.
+player = {}
+enemy = {}
+
+# Заполняем словари из файлов.
+character_loading(player, 'player.txt')
+player['name'] = input('Enter your name, warrior: ')            # ввод имени игрока
+character_loading(enemy, 'enemy.txt')
+
+# Цикл боя, противники наносят друг другу удары в случайном порядке.
+while (player['helth'] and enemy['helth']) > 0:
     dise_num = random.randint(1,2)
     if dise_num % 2 == 0:
         attack(player, enemy)
