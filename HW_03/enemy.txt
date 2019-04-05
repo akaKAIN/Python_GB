@@ -1,0 +1,5 @@
+name    Гранит_науки
+helth   1000
+damage  30
+armor   1.2
+motivation  1.0
