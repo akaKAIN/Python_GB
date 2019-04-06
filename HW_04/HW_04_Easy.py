@@ -26,5 +26,5 @@ print(list3)
 # + Элемент не кратен 4
 list4 = [x for x in range(-100, 100)]
 result = [number for number in list4 \
-          if number > 0 and number % 3 == 0 and number % 4 == 0]
+          if number > 0 and number % 3 == 0 and number % 4 != 0]
 print((result))
