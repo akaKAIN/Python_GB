@@ -14,7 +14,7 @@ print(result)
 # Получить список фруктов, присутствующих в обоих исходных списках.
 list1 = [1, 2, 3, 4, 5, 6]
 list2 = [4, 5, 6, 7, 8, 9]
-list3 = list(set(list1) & set(list2))
+list3 = [element for element in list1 if element in list2]
 print(list3)
 
 
@@ -25,6 +25,6 @@ print(list3)
 # + Элемент положительный
 # + Элемент не кратен 4
 list4 = [x for x in range(-100, 100)]
-result = [number for number in list4 \
+result = [number for number in list4
           if number > 0 and number % 3 == 0 and number % 4 != 0]
 print((result))
