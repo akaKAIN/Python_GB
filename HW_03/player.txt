@@ -1,5 +1,0 @@
-name    -
-helth   150
-damage  60
-armor   1.2
-motivation  5.0
