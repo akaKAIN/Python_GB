@@ -5,6 +5,8 @@ from easy import move_up
 from easy import look_a_round
 from easy import create_dir
 from easy import del_dir
+
+
 """Утилита навигации с функциями просмотра содержимого, создания, удаления директорий"""
 
 
@@ -16,7 +18,7 @@ menu_navigations = [
 menu_options = [
     'Отобразить содержимое текущей директории', 'Создать директорию (рекурсивно)',
     'Удалить директорию (рекурсивно) с указанием пути', 'Удалить директорию выбрав ее номер в списке',
-    'вернуться назад', 'пункт-6', 'пункт-7', 'пункт-8', 'пункт-9', 'пункт-10', 'пункт-11'
+    'вернуться назад', 'ЗД №5 (Хард): командная строка'
 ]
 # Удаляет переданный индекс в переданом списке
 def del_dir_by_key(list):
@@ -52,6 +54,7 @@ def input_answer_menu():
 # Меню функционала.
 def menu_options_print():
     while True:
+
         print(f'*************************\n'
               f'* функциональное меню:')
         for i in range(len(menu_options)):
@@ -62,6 +65,7 @@ def menu_options_print():
         except ValueError as error:
             print(f'* {error}\n* Невернный ввод данных.\n')
             continue
+
         if answer == 1:
             look_a_round(os.getcwd())
         elif answer == 2:
@@ -76,7 +80,7 @@ def menu_options_print():
         elif answer == 5:
             input('... нажмите Enter для выхода в меню навигации')
             break
-        elif answer > 5:
+        elif answer > 5 :
             print(f'* Неверный выбор пункта - выберите из предложенных.')
 
 def menu_choise(answer):
@@ -92,6 +96,7 @@ def menu_choise(answer):
         look_a_round(adress)
     elif answer == 4:
         menu_options_print()
+
 
 
 print('''
