@@ -12,44 +12,38 @@
 # Доработайте нашу фабрику, создайте по одному классу на каждый тип, теперь надо в классе фабрика
 # исходя из типа игрушки отдавать конкретный объект класса, который наследуется от базового - Игрушка
 
+# Сперва нужно создать родительский класс Игрушка с атрибутами имя и цвет.
+# Создать несколько дочерних классов ИгрушкаТип с унаследованными атрибутами
+# имя и цвет и атрибутом тип по умолчанию. Далее основной действующий
+# класс ToyFactory, с методом создания игрушки. Т.е. он принимает название
+# игрушки, цвет, тип и в зависимости от типа создает экземпляр соответствующего
+# класса ИгрушкаТип (животное, солдатики, машинки, куклы ....)
+
 import random
 
-
 class ToyFactory:
-    def __init__(self, name=None, color=None, toy_type=None):
-        self.name = name
-        self.color = color
-        self.toy_type = toy_type
+    def __init__(self):
         self.purchase()
-        self.craft()
+        self.crafting()
         self.painting()
-        self.__label
 
     def purchase(self):
-        print(f'Закупка сырья для игрушки')
+        print('Запукаем материал')
 
-    def craft(self):
-        self.toy_type = random.choice(toys_types)
-        print(f'Взятие схемы выкройки {self.toy_type}a и его пошив')
+    def crafting(self):
+        print('Шьем игрушку по схемам')
 
     def painting(self):
-        self.color = random.choice(toys_color)
-        print(f'Покраска будущей игрушки в {self.color} цвет')
-        self.name = random.choice(toys_names)
+        print('Окрашиваем игрушку')
 
-    @property
-    def __label(self):
-        return print(f'Игрушка "{self.color} {self.toy_type} по имени {self.name}" - ГоТоВа.')
-
-
-class Toy(ToyFactory):
+class Toy:
     def __init__(self):
-        super().__init__(ToyFactory)
+        self.name = random.choice(toys_names)
+        self.toy_type = random.choice(toys_types)
+        self.color = random.choice(toys_color)
 
-
-
-
-
+    def label(self):
+        print(f'{self.color} {self.toy_type} по имени {self.name}')
 
 
 toys_types = [
@@ -66,5 +60,5 @@ toys_color = [
     'прозрачный', 'мутный', 'сизый'
 ]
 
-toy1 = ToyPython()
-print(toy1.toy_type)
+a = ToyFactory()
+print(a)
