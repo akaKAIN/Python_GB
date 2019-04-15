@@ -106,3 +106,6 @@ crafting_toy.label
 
 a = crafting_toy.make_soft_toy()
 a.label
+
+b = crafting_toy.make_person_toy()
+b.label
