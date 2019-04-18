@@ -50,7 +50,7 @@ class Card:
             if row_num.count(' -') == 5:
                 return self.name
         return False
-
+    
 class Game:
     def __init__(self, player, enemy):
         self._player = player
@@ -59,7 +59,7 @@ class Game:
         self.winner = None
 
     # Отрисовка карточек игроков.
-    def drow_cards(self):
+    def draw_cards(self):
 
         # Очистка экрана.
         def clear_screen():
@@ -118,7 +118,7 @@ class Game:
     def start(self):
         while not self._player.look_who_win and not self._enemy.look_who_win:
             new_number = self.taking_number()
-            self.drow_cards()
+            self.draw_cards()
             print(f'\nВыпало число {new_number}')
             if self._player.check_number(new_number):
                 self.cross_out_number(new_number)
