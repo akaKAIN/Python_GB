@@ -2,6 +2,7 @@ import os
 from random import randint
 from random import sample
 
+
 class Card:
     def __init__(self, name):
         self.name = name
@@ -37,7 +38,6 @@ class Card:
             format_card.append(format_row)
         return format_card
 
-
     def check_number(self, num):
         for row in self.format_card:
             if num in row:
@@ -50,7 +50,8 @@ class Card:
             if row_num.count(' -') == 5:
                 return self.name
         return False
-    
+
+
 class Game:
     def __init__(self, player, enemy):
         self._player = player
@@ -64,9 +65,10 @@ class Game:
         # Очистка экрана.
         def clear_screen():
             if os.name == 'nt':
-                os.system('cls')
+                return os.system('cls')
             else:
-                os.system('clear')
+                return os.system('clear')
+
         # Вывод имени владельца карточки.
         def draw_card_of(name):
             print('{}{}{}'.format(
